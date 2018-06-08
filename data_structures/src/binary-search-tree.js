@@ -8,8 +8,17 @@ class BinarySearchTree {
   }
 
   depthFirstForEach(cb) {
-    /* Your code here */
-    
+
+    function search(node) {
+      if (node === null) return
+
+      cb(node.value);
+
+      search(node.left);
+      search(node.right);
+    }
+
+    search(this);
   }
 
   breadthFirstForEach(cb) {
