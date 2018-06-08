@@ -21,6 +21,26 @@ class BinarySearchTree {
     search(this);
   }
 
+  iterative_version_depthFirstForEach(cb) {
+    const stack = [];
+    stack.push(this);
+
+    while (stack.length) {
+      const currentNode = stack.pop();
+      // if we want to achieve left to right depth first order
+      // the right node needs to be pushed to the stack first
+      if (currentNode.right) {
+        stack.push(currentNode.right);
+      }
+
+      if (currentNode.left) {
+        stack.push(currentNode.left);
+      }
+
+      cb(currentNode.value);
+    }
+  }
+
   breadthFirstForEach(cb) {
     let currentNode;
     this.queue.push(this);

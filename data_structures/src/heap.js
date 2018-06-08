@@ -3,20 +3,29 @@ const heapsort = (arr) => {
 
   heap.buildHeap(arr);
 
-  let lastElementIndex = arr.length - 1;
 
-  while(lastElementIndex > 0) {
-    heap.siftDown(lastElementIndex);
-    lastElementIndex--;
-  }
-
-  arr = heap.getHeap();
+  arr = heap.getHeap().reverse();
   console.log(arr);
 
   return arr;
   
 };
 
+
+const heapsort = (arr) => {
+  const help = new Heap();
+  const sorted = Array(arr.length);
+
+  for (let i = 0; i < arr.length; i++) {
+    heap.insert(arr[i]);
+  }
+
+  for (let i =  arr.length - 1; i > -1; i--) {
+   sorted[i] = heap.delete();
+  } 
+
+  return sorted;
+}
 
 class Heap {
   constructor() {
