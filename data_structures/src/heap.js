@@ -1,5 +1,19 @@
 const heapsort = (arr) => {
-  /* Your code here */
+  let heap = new Heap();
+
+  heap.buildHeap(arr);
+
+  let lastElementIndex = arr.length - 1;
+
+  while(lastElementIndex > 0) {
+    heap.siftDown(lastElementIndex);
+    lastElementIndex--;
+  }
+
+  arr = heap.getHeap();
+  console.log(arr);
+
+  return arr;
   
 };
 
@@ -7,6 +21,14 @@ const heapsort = (arr) => {
 class Heap {
   constructor() {
     this.storage = [];
+  }
+
+  buildHeap(arr) {
+    arr.forEach(e => this.insert(e));
+  }
+
+  getHeap() {
+    return this.storage;
   }
 
   insert(val) {
