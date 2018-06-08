@@ -20,7 +20,7 @@ describe('`depthFirstForEach` and `breadthFirstForEach`', () => {
     expect(array).toEqual([5, 2, 3, 7, 9]);
   });
 
-  test("`breadthFirstForEach` executes a callback on every value in a tree in breadth-first order", () => {
+  test.only("`breadthFirstForEach` executes a callback on every value in a tree in breadth-first order", () => {
     const array = [];
     const cb = x => array.push(x);
 
